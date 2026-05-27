@@ -306,7 +306,7 @@ function Dashboard({ctx,expiryAlerts}) {
   const {me,isAdmin,companies,activities,agents,agentOf,setModal} = ctx;
   const mine = isAdmin?companies:companies.filter(c=>c.agentId===me.id);
   const hour = new Date().getHours();
-  const greeting = hour<12?"Bom dia":"hour<18?"Boa tarde":"Boa noite";
+  const greeting = hour<12?"Bom dia":hour<18?"Boa tarde":"Boa noite";
 
   const kpis = [
     {label:"Empresas",   v:mine.length,                   color:T.blue,  icon:"🏢",  bg:"#0A84FF"},
@@ -516,7 +516,7 @@ function Pipeline({ctx}) {
       </div>
 
       {/* Filters */}
-      <div style={{display:"flex",gap:10,marginBottom:20,flexWrap:"wrap"}} className="fade-up" style2={{animationDelay:".05s"}}>
+      <div style={{display:"flex",gap:10,marginBottom:20,flexWrap:"wrap",animationDelay:".05s"}} className="fade-up">
         <div style={{flex:"1 1 200px",position:"relative"}}>
           <span style={{position:"absolute",left:12,top:"50%",transform:"translateY(-50%)",color:T.muted,fontSize:14}}>🔍</span>
           <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Pesquisar empresa..."
@@ -1003,7 +1003,7 @@ function Login({agents,onSelect}) {
                   cursor:"pointer", textAlign:"left",
                   display:"flex", justifyContent:"space-between", alignItems:"center",
                   transition:"all .2s cubic-bezier(.16,1,.3,1)",
-                  animationDelay:`${i*.06}s`}} className2="scale-in btn-press"
+                  animationDelay:`${i*.06}s`}} className="scale-in btn-press"
                 onMouseEnter={e=>{e.currentTarget.style.background=a.isAdmin?`${a.color}18`:"rgba(255,255,255,0.05)";e.currentTarget.style.transform="scale(1.01)";}}
                 onMouseLeave={e=>{e.currentTarget.style.background=a.isAdmin?`${a.color}10`:"rgba(255,255,255,0.02)";e.currentTarget.style.transform="scale(1)";}}>
                 <div style={{display:"flex",alignItems:"center",gap:13}}>
